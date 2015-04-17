@@ -24,12 +24,13 @@
         UIImage *img = [UIImage imageNamed:imgName];
         [imgArr addObject:img];
     }
-    CGRect rect = self.view.frame;
     
-//    rect.origin.x = 5;
-//    rect.origin.y = 20;
-//    rect.size.width -= 100;
-//    rect.size.height -= 60;
+    CGRect rect = self.view.frame;
+//    CGRect rect_1 = [UIScreen mainScreen].bounds;
+    if (self.navigationController.viewControllers.count) {
+//        rect.origin.y += CGRectGetHeight(self.navigationController.navigationBar.frame);
+        rect.size.height -= CGRectGetHeight(self.navigationController.navigationBar.frame);
+    }
 
     ZCRollingScrollView *scrollView = [[ZCRollingScrollView alloc] initWithFrame:rect];
     [scrollView setImgArray:imgArr];
