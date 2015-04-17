@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA9D20A91AE0FA83008EB032 /* navigation@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA9D20A81AE0FA83008EB032 /* navigation@2x.png */; };
+		AA9D20AD1AE0FB78008EB032 /* ZCNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9D20AC1AE0FB78008EB032 /* ZCNavigationBar.m */; };
 		AAE0B7081AE0ADC90043EE03 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE0B7071AE0ADC90043EE03 /* main.m */; };
 		AAE0B70B1AE0ADC90043EE03 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE0B70A1AE0ADC90043EE03 /* AppDelegate.m */; };
 		AAE0B70E1AE0ADC90043EE03 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE0B70D1AE0ADC90043EE03 /* ViewController.m */; };
@@ -20,6 +22,7 @@
 		AAE0B74E1AE0B3A10043EE03 /* IMG_3387.png in Resources */ = {isa = PBXBuildFile; fileRef = AAE0B7491AE0B3A10043EE03 /* IMG_3387.png */; };
 		AAE0B74F1AE0B3A10043EE03 /* IMG_3388.png in Resources */ = {isa = PBXBuildFile; fileRef = AAE0B74A1AE0B3A10043EE03 /* IMG_3388.png */; };
 		AAE0B7501AE0B3A10043EE03 /* IMG_3389.png in Resources */ = {isa = PBXBuildFile; fileRef = AAE0B74B1AE0B3A10043EE03 /* IMG_3389.png */; };
+		AAE0B7571AE0ED080043EE03 /* MLBlackTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE0B7551AE0ED080043EE03 /* MLBlackTransition.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +36,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AA9D20A81AE0FA83008EB032 /* navigation@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigation@2x.png"; sourceTree = "<group>"; };
+		AA9D20AB1AE0FB78008EB032 /* ZCNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCNavigationBar.h; sourceTree = "<group>"; };
+		AA9D20AC1AE0FB78008EB032 /* ZCNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCNavigationBar.m; sourceTree = "<group>"; };
 		AAE0B7021AE0ADC90043EE03 /* ZCScrollewRolling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZCScrollewRolling.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAE0B7061AE0ADC90043EE03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AAE0B7071AE0ADC90043EE03 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -53,6 +59,9 @@
 		AAE0B7491AE0B3A10043EE03 /* IMG_3387.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_3387.png; sourceTree = "<group>"; };
 		AAE0B74A1AE0B3A10043EE03 /* IMG_3388.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_3388.png; sourceTree = "<group>"; };
 		AAE0B74B1AE0B3A10043EE03 /* IMG_3389.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_3389.png; sourceTree = "<group>"; };
+		AAE0B7541AE0ED080043EE03 /* MLBlackTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLBlackTransition.h; sourceTree = "<group>"; };
+		AAE0B7551AE0ED080043EE03 /* MLBlackTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLBlackTransition.m; sourceTree = "<group>"; };
+		AAE0B7581AE0ED910043EE03 /* ZCScrollewRolling.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZCScrollewRolling.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +82,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AA9D20AA1AE0FB4E008EB032 /* NavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				AA9D20AB1AE0FB78008EB032 /* ZCNavigationBar.h */,
+				AA9D20AC1AE0FB78008EB032 /* ZCNavigationBar.m */,
+			);
+			path = NavigationBar;
+			sourceTree = "<group>";
+		};
 		AAE0B6F91AE0ADC90043EE03 = {
 			isa = PBXGroup;
 			children = (
@@ -94,7 +112,9 @@
 		AAE0B7041AE0ADC90043EE03 /* ZCScrollewRolling */ = {
 			isa = PBXGroup;
 			children = (
+				AA9D20AA1AE0FB4E008EB032 /* NavigationBar */,
 				AAE0B72B1AE0ADD60043EE03 /* UIImage */,
+				AAE0B7511AE0ECF90043EE03 /* MLBlackTransition */,
 				AAE0B7091AE0ADC90043EE03 /* AppDelegate.h */,
 				AAE0B70A1AE0ADC90043EE03 /* AppDelegate.m */,
 				AAE0B70C1AE0ADC90043EE03 /* ViewController.h */,
@@ -114,6 +134,7 @@
 			children = (
 				AAE0B7061AE0ADC90043EE03 /* Info.plist */,
 				AAE0B7071AE0ADC90043EE03 /* main.m */,
+				AAE0B7581AE0ED910043EE03 /* ZCScrollewRolling.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -138,6 +159,7 @@
 		AAE0B72B1AE0ADD60043EE03 /* UIImage */ = {
 			isa = PBXGroup;
 			children = (
+				AA9D20A81AE0FA83008EB032 /* navigation@2x.png */,
 				AAE0B7471AE0B3A10043EE03 /* IMG_3385.png */,
 				AAE0B7481AE0B3A10043EE03 /* IMG_3386.png */,
 				AAE0B7491AE0B3A10043EE03 /* IMG_3387.png */,
@@ -145,6 +167,15 @@
 				AAE0B74B1AE0B3A10043EE03 /* IMG_3389.png */,
 			);
 			path = UIImage;
+			sourceTree = "<group>";
+		};
+		AAE0B7511AE0ECF90043EE03 /* MLBlackTransition */ = {
+			isa = PBXGroup;
+			children = (
+				AAE0B7541AE0ED080043EE03 /* MLBlackTransition.h */,
+				AAE0B7551AE0ED080043EE03 /* MLBlackTransition.m */,
+			);
+			path = MLBlackTransition;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,6 +262,7 @@
 				AAE0B74F1AE0B3A10043EE03 /* IMG_3388.png in Resources */,
 				AAE0B7501AE0B3A10043EE03 /* IMG_3389.png in Resources */,
 				AAE0B7111AE0ADC90043EE03 /* Main.storyboard in Resources */,
+				AA9D20A91AE0FA83008EB032 /* navigation@2x.png in Resources */,
 				AAE0B7161AE0ADC90043EE03 /* LaunchScreen.xib in Resources */,
 				AAE0B74C1AE0B3A10043EE03 /* IMG_3385.png in Resources */,
 				AAE0B74E1AE0B3A10043EE03 /* IMG_3387.png in Resources */,
@@ -252,8 +284,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA9D20AD1AE0FB78008EB032 /* ZCNavigationBar.m in Sources */,
 				AAE0B70E1AE0ADC90043EE03 /* ViewController.m in Sources */,
 				AAE0B70B1AE0ADC90043EE03 /* AppDelegate.m in Sources */,
+				AAE0B7571AE0ED080043EE03 /* MLBlackTransition.m in Sources */,
 				AAE0B7461AE0AEC90043EE03 /* ZCRollingScrollView.m in Sources */,
 				AAE0B7081AE0ADC90043EE03 /* main.m in Sources */,
 			);
@@ -385,6 +419,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Yu Da (5GZ8ZK5BPS)";
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/ZCScrollewRolling/ZCScrollewRolling.pch";
 				INFOPLIST_FILE = ZCScrollewRolling/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -400,6 +436,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Yu Da (5GZ8ZK5BPS)";
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/ZCScrollewRolling/ZCScrollewRolling.pch";
 				INFOPLIST_FILE = ZCScrollewRolling/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -463,6 +501,7 @@
 				AAE0B7271AE0ADC90043EE03 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AAE0B7281AE0ADC90043EE03 /* Build configuration list for PBXNativeTarget "ZCScrollewRollingTests" */ = {
 			isa = XCConfigurationList;
@@ -471,6 +510,7 @@
 				AAE0B72A1AE0ADC90043EE03 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

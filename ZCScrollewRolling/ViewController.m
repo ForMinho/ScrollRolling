@@ -17,14 +17,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-   
+    self.view.backgroundColor = [UIColor whiteColor];
     NSMutableArray *imgArr = [[NSMutableArray alloc] init];
     for (NSInteger i = 5; i < 10; i ++) {
         NSString *imgName = [NSString stringWithFormat:@"IMG_338%lu",(long)i];
         UIImage *img = [UIImage imageNamed:imgName];
         [imgArr addObject:img];
     }
-    ZCRollingScrollView *scrollView = [[ZCRollingScrollView alloc] initWithFrame:self.view.frame];
+    CGRect rect = self.view.frame;
+    
+//    rect.origin.x = 5;
+//    rect.origin.y = 20;
+//    rect.size.width -= 100;
+//    rect.size.height -= 60;
+
+    ZCRollingScrollView *scrollView = [[ZCRollingScrollView alloc] initWithFrame:rect];
     [scrollView setImgArray:imgArr];
     [self.view addSubview:scrollView];
 }

@@ -1,0 +1,13 @@
+//
+//  GJAnimator.h
+//  GJ
+//
+//  Created by 陈小强 on 15-2-3.
+//  Copyright (c) 2015年 ZKL. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+@interface GJAnimator : NSObject<UIViewControllerAnimatedTransitioning>
+
+@end

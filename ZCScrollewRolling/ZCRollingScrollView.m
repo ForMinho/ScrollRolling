@@ -8,6 +8,10 @@
 
 #import "ZCRollingScrollView.h"
 @interface ZCRollingScrollView ()<UIScrollViewDelegate>
+{
+    NSInteger timerDelay;
+}
+@property (nonatomic        ) CGRect scrollRect;
 @property (nonatomic, strong) UIPageControl *pageControl;
 @property (nonatomic, strong) UIScrollView  *scrollView;
 @end
@@ -19,16 +23,19 @@
     if (self) {
         CGRect rect = self.frame;
         self.scrollView = [[UIScrollView alloc] initWithFrame:frame];
+        self.scrollRect = self.scrollView.frame;
         self.scrollView.showsHorizontalScrollIndicator = NO;
         self.scrollView.showsVerticalScrollIndicator = NO;
         self.scrollView.delegate = self;
-        [self addSubview:self.scrollView];
+        self.scrollView.bounces = YES;
+//        [self addSubview:self.scrollView];
         rect.size.height = 20;
         rect.origin.y = CGRectGetHeight(self.frame) - rect.size.height;
         self.pageControl = [[UIPageControl alloc] initWithFrame:rect];
         self.pageControl.currentPageIndicatorTintColor = [UIColor redColor];
         self.pageControl.currentPage = 0;
         [self addSubview:self.pageControl];
+        timerDelay = 2.0f;
     }
     return self;
 }
@@ -40,7 +47,7 @@
         [array insertObject:imgArray[imgArray.count - 1] atIndex:0];
     }
     _imgArray = array;
-    self.scrollView.contentSize = CGSizeMake(self.imgArray.count * CGRectGetWidth(self.frame), CGRectGetHeight(self.frame));
+    self.scrollView.contentSize = CGSizeMake(self.imgArray.count * CGRectGetWidth(self.scrollRect), 0);
     self.scrollView.pagingEnabled = YES;
     self.pageControl.numberOfPages = _imgArray.count > 1 ?_imgArray.count - 2:_imgArray.count;
     [self initWithUI];
@@ -57,23 +64,38 @@
         [self.scrollView addSubview:imgView];
     }
     if (_imgArray.count > 1) {
-        [self.scrollView setContentOffset:CGPointMake(CGRectGetWidth(self.scrollView.frame), 0) animated:NO];
+        [self.scrollView setContentOffset:CGPointMake(CGRectGetWidth(self.scrollRect), 0) animated:NO];
     }
+    [self performSelector:@selector(timerScrollImgPages) withObject:self
+               afterDelay:timerDelay];
 }
 
+- (void)timerScrollImgPages
+{
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(timerScrollImgPages) object:nil];
+    
+    if (_imgArray.count > 1) {
+        CGFloat contentX = self.scrollView.contentOffset.x + CGRectGetWidth(self.scrollRect);
+        [self.scrollView setContentOffset:CGPointMake(contentX, 0) animated:YES];
+        [self performSelector:@selector(timerScrollImgPages) withObject:self
+                   afterDelay:timerDelay];
+
+    }
+    
+}
 #pragma mark --- UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     CGFloat consetX = scrollView.contentOffset.x;
     
     if (consetX < 0) {
-        [scrollView setContentOffset:CGPointMake((_imgArray.count - 2)*CGRectGetWidth(self.scrollView.frame), 0) animated:NO];
+        [scrollView setContentOffset:CGPointMake((_imgArray.count - 2)*CGRectGetWidth(self.scrollRect), 0) animated:NO];
     }
-    if (consetX > CGRectGetWidth(self.scrollView.frame) * (_imgArray.count - 1)) {
-        [scrollView setContentOffset:CGPointMake(CGRectGetWidth(self.scrollView.frame), 0) animated:NO];
+    if (consetX > CGRectGetWidth(self.scrollRect) * (_imgArray.count - 1)) {
+        [scrollView setContentOffset:CGPointMake(CGRectGetWidth(self.scrollRect), 0) animated:NO];
     }
     
-    int currentPage = consetX / CGRectGetWidth(self.scrollView.frame);
+    int currentPage = consetX / CGRectGetWidth(self.scrollRect);
     if (_imgArray.count > 1)
     {
         currentPage --;

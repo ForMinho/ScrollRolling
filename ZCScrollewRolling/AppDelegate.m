@@ -7,7 +7,8 @@
 //
 
 #import "AppDelegate.h"
-
+#import "MLBlackTransition.h"
+#import "ViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -17,8 +18,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-//    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:NO];
-//    [UIApplication sharedApplication].statusBarHidden = YES;
+
+    [MLBlackTransition validatePanPackWithMLBlackTransitionGestureRecognizerType:MLBlackTransitionGestureRecognizerTypePan];
+    ViewController *con = [[ViewController alloc] init];
+    UINavigationController *navCon = [[UINavigationController alloc] initWithRootViewController:con];
+
+//    [navCon.navigationBar setBackgroundImage:[UIImage imageNamed:@"navigation"] forBarMetrics:UIBarMetricsDefault];
+    
+//    navCon.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+    
+    self.window.rootViewController = navCon;
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
