@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA0A4D511AE24EAC00C23257 /* ZCTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA0A4D501AE24EAC00C23257 /* ZCTestViewController.m */; };
 		AA9D20A91AE0FA83008EB032 /* navigation@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA9D20A81AE0FA83008EB032 /* navigation@2x.png */; };
 		AA9D20AD1AE0FB78008EB032 /* ZCNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9D20AC1AE0FB78008EB032 /* ZCNavigationBar.m */; };
 		AAE0B7081AE0ADC90043EE03 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE0B7071AE0ADC90043EE03 /* main.m */; };
 		AAE0B70B1AE0ADC90043EE03 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE0B70A1AE0ADC90043EE03 /* AppDelegate.m */; };
-		AAE0B70E1AE0ADC90043EE03 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE0B70D1AE0ADC90043EE03 /* ViewController.m */; };
 		AAE0B7111AE0ADC90043EE03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAE0B70F1AE0ADC90043EE03 /* Main.storyboard */; };
 		AAE0B7131AE0ADC90043EE03 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAE0B7121AE0ADC90043EE03 /* Images.xcassets */; };
 		AAE0B7161AE0ADC90043EE03 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAE0B7141AE0ADC90043EE03 /* LaunchScreen.xib */; };
@@ -36,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AA0A4D4F1AE24EAC00C23257 /* ZCTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCTestViewController.h; sourceTree = "<group>"; };
+		AA0A4D501AE24EAC00C23257 /* ZCTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCTestViewController.m; sourceTree = "<group>"; };
 		AA9D20A81AE0FA83008EB032 /* navigation@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigation@2x.png"; sourceTree = "<group>"; };
 		AA9D20AB1AE0FB78008EB032 /* ZCNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCNavigationBar.h; sourceTree = "<group>"; };
 		AA9D20AC1AE0FB78008EB032 /* ZCNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCNavigationBar.m; sourceTree = "<group>"; };
@@ -44,8 +46,6 @@
 		AAE0B7071AE0ADC90043EE03 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AAE0B7091AE0ADC90043EE03 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		AAE0B70A1AE0ADC90043EE03 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		AAE0B70C1AE0ADC90043EE03 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		AAE0B70D1AE0ADC90043EE03 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		AAE0B7101AE0ADC90043EE03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AAE0B7121AE0ADC90043EE03 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		AAE0B7151AE0ADC90043EE03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -117,8 +117,8 @@
 				AAE0B7511AE0ECF90043EE03 /* MLBlackTransition */,
 				AAE0B7091AE0ADC90043EE03 /* AppDelegate.h */,
 				AAE0B70A1AE0ADC90043EE03 /* AppDelegate.m */,
-				AAE0B70C1AE0ADC90043EE03 /* ViewController.h */,
-				AAE0B70D1AE0ADC90043EE03 /* ViewController.m */,
+				AA0A4D4F1AE24EAC00C23257 /* ZCTestViewController.h */,
+				AA0A4D501AE24EAC00C23257 /* ZCTestViewController.m */,
 				AAE0B7441AE0AEC90043EE03 /* ZCRollingScrollView.h */,
 				AAE0B7451AE0AEC90043EE03 /* ZCRollingScrollView.m */,
 				AAE0B70F1AE0ADC90043EE03 /* Main.storyboard */,
@@ -285,9 +285,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA9D20AD1AE0FB78008EB032 /* ZCNavigationBar.m in Sources */,
-				AAE0B70E1AE0ADC90043EE03 /* ViewController.m in Sources */,
 				AAE0B70B1AE0ADC90043EE03 /* AppDelegate.m in Sources */,
 				AAE0B7571AE0ED080043EE03 /* MLBlackTransition.m in Sources */,
+				AA0A4D511AE24EAC00C23257 /* ZCTestViewController.m in Sources */,
 				AAE0B7461AE0AEC90043EE03 /* ZCRollingScrollView.m in Sources */,
 				AAE0B7081AE0ADC90043EE03 /* main.m in Sources */,
 			);

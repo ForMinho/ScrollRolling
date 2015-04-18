@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "MLBlackTransition.h"
-#import "ViewController.h"
+#import "ZCTestViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -18,11 +18,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-
-//    [MLBlackTransition validatePanPackWithMLBlackTransitionGestureRecognizerType:MLBlackTransitionGestureRecognizerTypePan];
-    ViewController *con = [[ViewController alloc] init];
+    ZCTestViewController *con = [[ZCTestViewController alloc] init];
     UINavigationController *navCon = [[UINavigationController alloc] initWithRootViewController:con];
 
+    
+//    con.imgArray = imgArr;
 //    [navCon.navigationBar setBackgroundImage:[UIImage imageNamed:@"navigation"] forBarMetrics:UIBarMetricsDefault];
     
 //    navCon.navigationBar.barStyle = UIBarStyleBlackTranslucent;

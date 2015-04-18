@@ -17,4 +17,6 @@
 #import <Foundation/Foundation.h>
 #endif
 
+
+#import "ZCRollingScrollView.h"
 #endif

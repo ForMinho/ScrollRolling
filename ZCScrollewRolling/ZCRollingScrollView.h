@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ZCRollingScrollView : UIView
+@interface ZCRollingScrollView : UIViewController
 @property (nonatomic, strong) NSArray *imgArray;
 @end
