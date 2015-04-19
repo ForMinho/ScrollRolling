@@ -20,13 +20,6 @@
     // Override point for customization after application launch.
     ZCTestViewController *con = [[ZCTestViewController alloc] init];
     UINavigationController *navCon = [[UINavigationController alloc] initWithRootViewController:con];
-
-    
-//    con.imgArray = imgArr;
-//    [navCon.navigationBar setBackgroundImage:[UIImage imageNamed:@"navigation"] forBarMetrics:UIBarMetricsDefault];
-    
-//    navCon.navigationBar.barStyle = UIBarStyleBlackTranslucent;
-    
     self.window.rootViewController = navCon;
     [self.window makeKeyAndVisible];
     return YES;

@@ -11,6 +11,7 @@
 @interface ZCRollingScrollView ()<UIScrollViewDelegate>
 {
     NSInteger timerDelay;
+    NSInteger currentPage;
 }
 @property (nonatomic        ) CGRect scrollRect;
 @property (nonatomic, strong) UIPageControl *pageControl;
@@ -34,18 +35,38 @@
     }
     return self;
 }
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    NSLog(@"%lu",(unsigned long)self.navigationController.viewControllers.count);
+}
+- (void) viewDidAppear:(BOOL)animated
+{
+    if ([self.navigationController.viewControllers objectAtIndex:0] == self) {
+        UIBarButtonItem *leftBarItem = [[UIBarButtonItem alloc] initWithTitle:@"back" style:UIBarButtonItemStyleBordered target:self action:@selector(popToPreViewController)];
+        self.navigationItem.leftBarButtonItem = leftBarItem;
+    }
+
+}
+- (void)popToPreViewController
+{
+    if (self.navigationController.viewControllers.count == 1) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+        return;
+    }
+    [self.navigationController popViewControllerAnimated:YES];
+}
+#pragma mark -- Init_UI
 - (void)initWithScroll
 {
     self.view.backgroundColor = [UIColor whiteColor];
     CGRect rect = self.view.frame;
     self.scrollView = [[UIScrollView alloc] initWithFrame:rect];
-    self.scrollView.backgroundColor = [UIColor redColor];
+    self.scrollView.backgroundColor = [UIColor whiteColor];
     self.scrollRect = self.scrollView.frame;
     
     self.scrollView.showsHorizontalScrollIndicator = NO;
     self.scrollView.showsVerticalScrollIndicator = NO;
-    self.scrollView.alwaysBounceHorizontal = NO;
-    self.scrollView.alwaysBounceVertical   = NO;
     self.scrollView.delegate = self;
     [self.view addSubview:self.scrollView];
     
@@ -53,6 +74,7 @@
     rect.origin.y = CGRectGetHeight(self.view.frame) - rect.size.height;
     self.pageControl = [[UIPageControl alloc] initWithFrame:rect];
     self.pageControl.currentPageIndicatorTintColor = [UIColor redColor];
+    self.pageControl.pageIndicatorTintColor = [UIColor greenColor];
     self.pageControl.currentPage = 0;
     [self.view addSubview:self.pageControl];
     timerDelay = 2.0f;
@@ -102,9 +124,9 @@
     }
     if (_imgArray.count > 1) {
         [self.scrollView setContentOffset:CGPointMake(CGRectGetWidth(self.scrollRect), ContentY) animated:NO];
-        [self performSelector:@selector(timerScrollImgPages) withObject:self
-                   afterDelay:timerDelay];
+        [self performSelector:@selector(timerScrollImgPages) withObject:self afterDelay:timerDelay];
     }
+    [self showTitles];
 }
 
 - (void)timerScrollImgPages
@@ -116,34 +138,44 @@
         [self performSelector:@selector(timerScrollImgPages) withObject:self
                    afterDelay:timerDelay];
     }
-    
+}
+
+#pragma mark -- ShowTitles
+- (void)showTitles
+{
+    NSString *titles = [NSString stringWithFormat:@"%lu/%lu",(long)currentPage + 1, (long)_imgArray.count > 1?(long)_imgArray.count - 2:(long)_imgArray.count];
+    self.title = titles;
 }
 #pragma mark --- UIScrollViewDelegate
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    [self showTitles];
+}
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    CGFloat consetX = scrollView.contentOffset.x;
-    
-    if (consetX < CGRectGetWidth(self.scrollRect)) {
+    if (_imgArray.count <= 1) {
+        return;
+    }
+    CGRect rect = _scrollView.bounds;
+    CGFloat consetX = CGRectGetMinX(rect);
+    if (consetX < 0)//CGRectGetWidth(self.scrollRect))
+    {
         [self.scrollView setContentOffset:CGPointMake((_imgArray.count - 2)*CGRectGetWidth(self.scrollRect), ContentY) animated:NO];
     }
     if (consetX > CGRectGetWidth(self.scrollRect) * (_imgArray.count - 1)) {
         [self.scrollView setContentOffset:CGPointMake(CGRectGetWidth(self.scrollRect), ContentY) animated:NO];
     }
-    
-    NSInteger currentPage = consetX / CGRectGetWidth(self.scrollRect);
-    if (_imgArray.count > 1)
+    currentPage = consetX / CGRectGetWidth(self.scrollRect);
+    currentPage --;
+    if (currentPage < 0)
     {
-        currentPage --;
-        if (currentPage < 0)
-        {
-            currentPage = self.pageControl.numberOfPages - 1;
-        }
-        if (currentPage > self.pageControl.numberOfPages - 1) {
-            currentPage = 0;
-        }
+        currentPage = self.pageControl.numberOfPages - 1;
     }
-
+    if (currentPage > self.pageControl.numberOfPages - 1) {
+        currentPage = 0;
+    }
     self.pageControl.currentPage = currentPage;
+    [self showTitles];
 }
 - (void)dealloc
 {
