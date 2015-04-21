@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface ZCRollingScrollView : UIView
+@class ZCRollingScrollView;
+@protocol ZCRollingScrollViewDelegate <NSObject>
+- (NSString *)ZCRollingScrollView:(UIScrollView *)scrollView AtIndex:(NSString *)index;
+@end
+@interface ZCRollingScrollView : UIViewController
 @property (nonatomic, strong) NSArray *imgArray;
 @end
